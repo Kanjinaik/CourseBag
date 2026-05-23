@@ -1,0 +1,201 @@
+/* Form Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.form-container {
+    font-family: 'Inter', sans-serif;
+}
+
+.form-card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.form-card:hover {
+    box-shadow: 0 25px 70px rgba(16, 185, 129, 0.15);
+}
+
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+.form-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.form-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.form-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.form-button:active {
+    transform: scale(0.98);
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.input-icon {
+    transition: all 0.3s ease;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #9ca3af;
+}
+
+/* Icon color change on input focus */
+.relative:focus-within .input-icon {
+    color: #10b981 !important;
+    transform: scale(1.1);
+}
+
+/* Ensure icons are always visible */
+.relative .absolute .input-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.floating-label {
+    transition: all 0.3s ease;
+}
+
+.input-focused .floating-label {
+    transform: translateY(-20px) scale(0.85);
+    color: #10b981;
+}
+
+.decorative-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.decorative-shape:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    right: -100px;
+    animation-delay: 0s;
+}
+
+.decorative-shape:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    bottom: -75px;
+    left: -75px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+.social-button {
+    transition: all 0.3s ease;
+    border: 2px solid #e5e7eb;
+}
+
+.social-button:hover {
+    border-color: #10b981;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .form-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .decorative-shape {
+        display: none;
+    }
+}
+
+/* Loading spinner for button */
+.button-loading {
+    position: relative;
+    color: transparent;
+}
+
+.button-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
