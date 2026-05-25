@@ -31,6 +31,8 @@ return [
         'client_id'     => env('PINELABS_CLIENT_ID'),
         'client_secret' => env('PINELABS_CLIENT_SECRET'),
         'base_url'      => env('PINELABS_PAYMENT_URL'),
+        'verify_ssl'    => env('PINELABS_VERIFY_SSL', true),
+        'ca_cert_path'  => env('PINELABS_CA_CERT_PATH', base_path('vendor/rmccue/requests/certificates/cacert.pem')),
     ],
 
 ];

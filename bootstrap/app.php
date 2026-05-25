@@ -21,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'payment/create-order',
             'payment/success',
             'payment/failure',
+            'webhooks/pinelabs',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

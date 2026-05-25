@@ -61,8 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::match(['GET', 'POST'], '/payment/create-order', [PaymentController::class, 'createOrder'])->name('payment.create-order');
     Route::match(['GET', 'POST'], '/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
     Route::match(['GET', 'POST'], '/payment/failure', [PaymentController::class, 'paymentFailure'])->name('payment.failure');
-    Route::match(['GET', 'POST'], '/webhooks/pinelabs', [PaymentController::class, 'pinelabsWebhook'])
-        ->name('pinelabs.webhook');
 
     // My Courses Routes
     Route::get('/mycourses', [MycoursesController::class, 'index'])->name('mycourses.index');
@@ -74,6 +72,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/mytransections/{id}/invoice-data', [MytransectionController::class, 'getInvoiceData'])->name('mytransections.invoice-data');
     Route::get('/mytransections/{id}/invoice', [MytransectionController::class, 'showInvoice'])->name('mytransections.invoice');
 });
+
+Route::match(['GET', 'POST'], '/webhooks/pinelabs', [PaymentController::class, 'pinelabsWebhook'])
+    ->name('pinelabs.webhook');
 
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
